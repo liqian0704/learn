@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  
+  <profiles>
+    <profile>
+      <id>nexus</id>
+      <repositories>
+        <repository>
+          <id>local-repository</id>
+          <name>local private repository</name>
+          <url>http://10.64.12.230:8081/nexus/content/groups/public</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>local-plugin-repository</id>
+          <name>local private plugin repository</name>
+          <url>http://10.64.12.230:8081/nexus/content/groups/public</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+    <profile>
+      <id>nexus-snapshots</id>
+      <repositories>
+        <repository>
+          <id>nexus-snapshots</id>
+          <name>local private snapshots</name>
+          <url>http://10.64.12.230:8081/nexus/content/groups/public-snapshots</url>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
+      <id>restlet</id>
+      <repositories>
+        <repository>
+          <id>maven-restlet</id>
+          <name>Public online Restlet repository</name>
+          <url>http://maven.restlet.org</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+    <activeProfile>nexus-snapshots</activeProfile>
+    <activeProfile>restlet</activeProfile>
+  </activeProfiles>
+  <servers>
+    <server>
+        <id>meituan-nexus-releases</id>
+        <username>deployment</username>
+        <password>deployment123</password>
+    </server>
+    <server>  
+        <id>meituan-nexus-snapshots</id>
+        <username>deployment</username>
+        <password>deloyment123</password>
+    </server>
+    <server>  
+        <id>android.repo</id>
+        <username>deployment</username>
+        <password>deloyment123</password>
+    </server>
+  </servers>
+</settings>
